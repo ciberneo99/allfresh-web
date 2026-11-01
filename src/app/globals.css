@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ * Brand colors were read from allfresh512.com (CSS) and the logo file:
+ *   #00CAC4 brand turquoise (logo, buttons, hover)
+ *   #2DBFBD secondary turquoise (mobile menu toggle)
+ *   #216F62 / #278575 deep greens (global palette)
+ *   #051145 navy (headings and text)
+ *   #3A3A3A body gray, #F6F6F6 / #ECF0F2 light surfaces
+ * Contrast notes: turquoise is used as a background with navy text. For
+ * turquoise-family text on white we use #216F62 (AA).
+ */
+@theme {
+  --color-brand: #00cac4;
+  --color-brand-alt: #2dbfbd;
+  /* Soft tints of the brand turquoise for large surfaces (navy text: ~15:1). */
+  --color-brand-soft: #d6f6f5;
+  --color-brand-wash: #bdeeeb;
+  --color-brand-deep: #278575;
+  --color-brand-dark: #216f62;
+  --color-navy: #051145;
+  --color-ink: #3a3a3a;
+  --color-surface: #f6f6f6;
+  --color-mist: #ecf0f2;
+  --color-line: #dddddd;
+  --color-danger: #b00020;
+
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-poppins), system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  --radius-card: 1rem;
+  --radius-control: 0.625rem;
+
+  --spacing-section: 4.5rem;
+  --container-site: 72rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.2;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #000;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-navy);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Focus ring that stays visible on dark/turquoise backgrounds */
+.on-dark :focus-visible,
+.bg-brand :focus-visible {
+  outline-color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
