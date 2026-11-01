@@ -20,14 +20,16 @@
   --color-brand-deep: #278575;
   --color-brand-dark: #216f62;
   --color-navy: #051145;
+  /* Navy of the cleaners' uniform, used for the site menu. */
+  --color-uniform: #1e3a6e;
   --color-ink: #3a3a3a;
   --color-surface: #f6f6f6;
   --color-mist: #ecf0f2;
   --color-line: #dddddd;
   --color-danger: #b00020;
 
-  --font-heading: var(--font-playfair), Georgia, serif;
-  --font-sans: var(--font-poppins), system-ui, -apple-system, "Segoe UI",
+  --font-heading: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, "Segoe UI",
     sans-serif;
 
   --radius-card: 1rem;

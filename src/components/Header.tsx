@@ -50,13 +50,13 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 px-3 pt-3 sm:px-5">
       <div className="relative mx-auto max-w-[80rem]">
-        <div className="flex items-center justify-between gap-4 rounded-full bg-white/95 py-2 pl-5 pr-2.5 shadow-md ring-1 ring-black/5 backdrop-blur">
-          <Link href="/" aria-label={`${business.name} home`} className="shrink-0">
+        <div className="flex items-center justify-between gap-4 rounded-full bg-uniform py-2 pl-2.5 pr-2.5 shadow-md ring-1 ring-white/10">
+          <Link href="/" aria-label={`${business.name} home`} className="shrink-0 pl-3">
             <Image
-              src="/images/allfresh-logo.jpg"
+              src="/images/allfresh-logo-transparent.png"
               alt={business.name}
-              width={164}
-              height={80}
+              width={1039}
+              height={590}
               priority
               className="h-12 w-auto"
             />
@@ -68,8 +68,8 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive(item.href) ? "page" : undefined}
-                className={`rounded-full px-4 py-2 text-[0.95rem] font-medium text-navy hover:bg-brand/15 ${
-                  isActive(item.href) ? "bg-brand/25" : ""
+                className={`rounded-full px-4 py-2 text-[0.95rem] font-medium text-white hover:bg-white/10 ${
+                  isActive(item.href) ? "bg-white/20" : ""
                 }`}
               >
                 {item.label}
@@ -80,7 +80,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <a
               href={smsHref}
-              className="hidden min-h-11 items-center justify-center rounded-full bg-navy px-5 py-2 text-base font-medium text-white transition-colors hover:bg-brand-dark lg:inline-flex"
+              className="hidden min-h-11 items-center justify-center rounded-full bg-white px-5 py-2 text-base font-medium text-uniform transition-colors hover:bg-brand-soft lg:inline-flex"
             >
               Text Us
             </a>
@@ -124,7 +124,7 @@ export function Header() {
           id="mobile-menu"
           ref={menuRef}
           hidden={!open}
-          className="absolute inset-x-0 top-full mt-2 rounded-3xl bg-white p-4 shadow-xl ring-1 ring-black/5 md:hidden"
+          className="absolute inset-x-0 top-full mt-2 rounded-3xl bg-uniform p-4 shadow-xl ring-1 ring-white/10 md:hidden"
         >
           <nav aria-label="Mobile">
             <ul className="flex flex-col">
@@ -133,7 +133,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
-                    className="block rounded-2xl px-3 py-3 text-lg font-medium text-navy aria-[current=page]:bg-brand/20"
+                    className="block rounded-2xl px-3 py-3 text-lg font-medium text-white aria-[current=page]:bg-white/15"
                   >
                     {item.label}
                   </Link>
