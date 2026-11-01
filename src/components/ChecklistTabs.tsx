@@ -43,6 +43,8 @@ function MarkCell({ mark }: { mark: Mark }) {
   }
 }
 
+const mobileColumns = ["Standard", "Deep", "Move In / Out"];
+
 export function ChecklistTabs() {
   const [active, setActive] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -103,7 +105,38 @@ export function ChecklistTabs() {
           hidden={active !== i}
           className="mt-4"
         >
-          <div className="relative overflow-x-auto rounded-[1.5rem] border-2 border-brand bg-white">
+          {/* Mobile: one card per task, the three levels side by side. */}
+          <ul
+            aria-label={`${t.area}: what each cleaning level includes`}
+            className="overflow-hidden rounded-[1.5rem] border-2 border-brand bg-white md:hidden"
+          >
+            {t.rows.map((r) => (
+              <li
+                key={r.task}
+                className="border-t border-brand/30 px-4 py-3 first:border-t-0 even:bg-brand/10"
+              >
+                <p className="text-sm font-medium text-navy">{r.task}</p>
+                <div className="mt-2.5 grid grid-cols-3 gap-2 text-center">
+                  {r.marks.map((m, ci) => (
+                    <div
+                      key={ci}
+                      className="rounded-xl bg-white px-1 py-2 ring-1 ring-brand/40"
+                    >
+                      <span className="block text-[0.7rem] font-semibold leading-tight text-navy">
+                        {mobileColumns[ci]}
+                      </span>
+                      <span className="mt-1 flex h-6 items-center justify-center">
+                        <MarkCell mark={m} />
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          {/* Tablet and desktop: full comparison table. */}
+          <div className="relative hidden overflow-x-auto rounded-[1.5rem] border-2 border-brand bg-white md:block">
             <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
               <caption className="sr-only">
                 {t.area}: what each cleaning level includes

@@ -18,15 +18,13 @@ export function Footer() {
       <div className="on-dark mx-auto max-w-[80rem] overflow-hidden rounded-[1.75rem] bg-navy text-white sm:rounded-[2rem]">
       <div className="mx-auto grid max-w-site gap-10 px-5 py-14 sm:px-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="inline-block rounded-control bg-white p-2">
-            <Image
-              src="/images/allfresh-logo.jpg"
-              alt={business.name}
-              width={164}
-              height={80}
-              className="h-14 w-auto"
-            />
-          </div>
+          <Image
+            src="/images/allfresh-logo-transparent.png"
+            alt={business.name}
+            width={1039}
+            height={590}
+            className="h-24 w-auto"
+          />
           <p className="mt-4 max-w-xs text-sm text-white/85">
             {business.tagline}
           </p>
